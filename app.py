@@ -3,9 +3,8 @@ import logging
 import os
 
 import websockets
-from websockets import ClientConnection, ServerConnection
-
 from config import setup_logging
+from websockets import ClientConnection, ServerConnection
 
 logger = logging.getLogger(__name__)
 

@@ -6,7 +6,6 @@ from html import unescape
 from xml.etree import ElementTree
 
 import websockets
-
 from config import setup_logging
 
 logger = logging.getLogger(__name__)
