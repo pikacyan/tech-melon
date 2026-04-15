@@ -163,7 +163,7 @@ async def tech_melon_weibo_wss(
         cookie_header = f"session={cookie_header}"
 
     async with websockets.connect(
-        "wss://weibo.tech-melon.top/socket.io/?EIO=4&transport=websocket",
+        "wss://tech-melon.pikacyan.xyz//socket.io/?EIO=4&transport=websocket",
         origin="https://weibo.tech-melon.top",
         user_agent_header=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
