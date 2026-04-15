@@ -3,6 +3,8 @@ import logging
 import os
 
 import websockets
+from websockets import ClientConnection, ServerConnection
+
 from config import setup_logging
 
 logger = logging.getLogger(__name__)
@@ -26,14 +28,14 @@ def build_cookie_header(session_cookie: str) -> str:
 
 
 async def relay_messages(
-    source: websockets.WebSocketClientProtocol | websockets.WebSocketServerProtocol,
-    target: websockets.WebSocketClientProtocol | websockets.WebSocketServerProtocol,
+    source: ClientConnection | ServerConnection,
+    target: ClientConnection | ServerConnection,
 ) -> None:
     async for message in source:
         await target.send(message)
 
 
-async def handle_client(client_ws: websockets.WebSocketServerProtocol) -> None:
+async def handle_client(client_ws: ServerConnection) -> None:
     session_cookie = build_cookie_header(TECH_MELON_SESSION_COOKIE)
 
     logger.info("客户端已连接，开始建立上游连接")
